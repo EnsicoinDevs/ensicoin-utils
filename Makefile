@@ -1,9 +1,14 @@
 CC=clang
 CFLAGS=-Wall
-SRC=$(wildcard src/*.c)
-LIB=ensicoin-utils.so
+ENSICOIN_ENFORCER_SRC=src/enforcer.c
+ENSICOIN_ENFORCER=build/bin/ensicoin-enforcer
+BUILDDIRS=build/bin/
 
-all: $(LIB)
+all: $(BUILDDIRS) $(ENSICOIN_ENFORCER)
 
-$(LIB): $(SRC)
-	$(CC) $(CFLAGS) -shared -fPIC -o $@ $^
+$(BUILDDIRS):
+	mkdir -p $@
+
+$(ENSICOIN_ENFORCER): $(ENSICOIN_ENFORCER_SRC)
+	$(CC) $(CFLAGS) -o $@ $^
+
