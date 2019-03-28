@@ -2,6 +2,7 @@
 #define ENSICOIN_UTILS_AUTOMATA_H
 
 #include "automata_header.h"
+#include "automata_address.h"
 #include "automata_varuint.h"
 
 /* ENSICOIN_UTILS_AUTOMATA_H */
