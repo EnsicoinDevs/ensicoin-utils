@@ -1,4 +1,4 @@
-#include "automata.h"
+#include "automata_header.h"
 
 #include <strings.h>
 
@@ -15,8 +15,6 @@ ensicoin_automata_header_start(struct ensicoin_automata_header *automata) {
 enum ensicoin_automata_header_state
 ensicoin_automata_header_update(struct ensicoin_automata_header *automata,
 	uint8_t byte) {
-	enum ensicoin_automata_header_state next
-		= automata->state;
 
 	switch(automata->state) {
 	case ENSICOIN_AUTOMATA_HEADER_MAGIC:
@@ -67,6 +65,6 @@ ensicoin_automata_header_update(struct ensicoin_automata_header *automata,
 		break;
 	}
 
-	return next;
+	return automata->state;
 }
 

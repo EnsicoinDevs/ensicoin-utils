@@ -1,4 +1,6 @@
-#include "automata.h"
+#include "automata_varuint.h"
+
+#define APPEND_BYTE(i, b) ((i) = ((i) << 8) | (b))
 
 void
 ensicoin_automata_varuint_start(struct ensicoin_automata_varuint *automata) {
@@ -27,13 +29,15 @@ ensicoin_automata_varuint_update(struct ensicoin_automata_varuint *automata,
 	case ENSICOIN_AUTOMATA_VARUINT_DISCARDING:
 		break;
 	case ENSICOIN_AUTOMATA_VARUINT_1_LEFT:
-		automata->value = (automata->value << 8) | byte;
+		APPEND_BYTE(automata->value, byte);
 		automata->state = ENSICOIN_AUTOMATA_VARUINT_END;
 		break;
 	default: /* ENSICOIN_AUTOMATA_VARUINT_2_LEFT <-> ENSICOIN_AUTOMATA_VARUINT_8_LEFT */
-		automata->value = (automata->value << 8) | byte;
+		APPEND_BYTE(automata->value, byte);
 		automata->state--;
 		break;
 	}
+
+	return automata->state;
 }
 
