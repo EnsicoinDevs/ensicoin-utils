@@ -1,0 +1,10 @@
+
+module CEnsicoinUtils {
+
+	module Automata {
+		header "automata/automata.h"
+		export *
+	}
+
+}
+
