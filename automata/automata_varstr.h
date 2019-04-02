@@ -11,7 +11,7 @@ struct ensicoin_automata_varstr {
 		ENSICOIN_AUTOMATA_VARSTR_STRING_END,
 		ENSICOIN_AUTOMATA_VARSTR_DISCARDING
 	} state;
-	uint64_t state_left;
+	uint64_t stateleft;
 
 	struct ensicoin_automata_varuint length;
 };

@@ -26,9 +26,9 @@ ensicoin_automata_varstr_update(struct ensicoin_automata_varstr *automata,
 		break;
 	case ENSICOIN_AUTOMATA_VARSTR_LENGTH_END:
 		automata->state = ENSICOIN_AUTOMATA_VARSTR_STRING;
-		automata->state_left = automata->length.value;
+		automata->stateleft = automata->length.value;
 	case ENSICOIN_AUTOMATA_VARSTR_STRING:
-		if(automata->state_left-- == 0) {
+		if(automata->stateleft-- == 0) {
 			automata->state = ENSICOIN_AUTOMATA_VARSTR_STRING_END;
 		}
 		break;

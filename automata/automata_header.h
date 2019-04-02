@@ -15,7 +15,7 @@ struct ensicoin_automata_header {
 		ENSICOIN_AUTOMATA_HEADER_PAYLOAD_END,
 		ENSICOIN_AUTOMATA_HEADER_DISCARDING
 	} state;
-	uint64_t state_left;
+	uint64_t stateleft;
 
 	union {
 		uint32_t magic;
